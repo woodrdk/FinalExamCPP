@@ -18,7 +18,7 @@ using namespace std;
 // Defined the decksize
 const int DECK_SIZE = 52;
 
-// Creates array of the decks cards
+// Array of the decks cards
 const array<string, DECK_SIZE> cards{
 		 "AH", "AC", "AD", "AS",
 		 "2H", "2C", "2D", "2S",
@@ -34,6 +34,7 @@ const array<string, DECK_SIZE> cards{
 		 "QH", "QC", "QD", "QS",
 		 "KH", "KC", "KD", "KS", };
 
+// function prototypes 
 void initializeDeck(array<const string *, DECK_SIZE> * deck);
 void displayDeck(array<const string *, DECK_SIZE> deck);
 void shuffleDeck(array<const string *, DECK_SIZE> * deck);
@@ -48,6 +49,7 @@ int main() {
 	while (userChoice != 0) {
 		printMenu();
 		cin >> userChoice;
+		cout << endl; // Added this line to make program more visually readable to me when running 
 		if (userChoice == 1) {
 			shuffleDeck(&deck);
 		}
@@ -66,18 +68,21 @@ void initializeDeck(array<const string *, DECK_SIZE> * deck) {
 	}
 }
 
+// This method tells the user what to push to run the program
 void printMenu() {
 	cout << "0 - Quit" << endl;
 	cout << "1 - Shuffle deck" << endl;
 	cout << "2 - Display deck" << endl;
 }
 
+// This method will display the deck of cards
 void displayDeck(array<const string *, DECK_SIZE> deck) {
 	// TO DO: REPLACE THE BODY OF THIS FUNCTION
-	cout << "Display the deck here" << endl;
+	cout << "This is the deck of Cards" << endl << endl;
 }
 
+// This method will shuffle the deck of cards
 void shuffleDeck(array<const string *, DECK_SIZE> * deck) {
 	// TO DO: REPLACE THE BODY OF THIS FUNCTION
-	cout << "Shuffle the deck here" << endl;
+	cout << "Shuffled the deck!" << endl << endl;
 }
