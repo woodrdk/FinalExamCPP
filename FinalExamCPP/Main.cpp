@@ -1,4 +1,11 @@
 
+
+// Robert M Wood Jr.
+// 3/15/2019
+// CPW 218 Winter
+// 2019 Final Exam
+
+
 #include <iostream>
 #include <array>
 #include <string>
@@ -8,7 +15,10 @@
 
 using namespace std;
 
+// Defined the decksize
 const int DECK_SIZE = 52;
+
+// Creates array of the decks cards
 const array<string, DECK_SIZE> cards{
 		 "AH", "AC", "AD", "AS",
 		 "2H", "2C", "2D", "2S",
@@ -64,10 +74,10 @@ void printMenu() {
 
 void displayDeck(array<const string *, DECK_SIZE> deck) {
 	// TO DO: REPLACE THE BODY OF THIS FUNCTION
-	cout << "Display the deck here" << end;
+	cout << "Display the deck here" << endl;
 }
 
 void shuffleDeck(array<const string *, DECK_SIZE> * deck) {
 	// TO DO: REPLACE THE BODY OF THIS FUNCTION
-	COUT << "Shuffle the deck here" << endl;
+	cout << "Shuffle the deck here" << endl;
 }
