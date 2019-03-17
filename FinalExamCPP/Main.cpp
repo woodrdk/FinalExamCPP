@@ -79,14 +79,16 @@ void printMenu() {
 void displayDeck(array<const string *, DECK_SIZE> deck) {
 	cout << "This is the deck of Cards" << endl << endl;
 	// Will print out the cards
-	// currently prints the address not the actual data
 	for (size_t i = 0; i < DECK_SIZE; ++i)
 	{
+		// prints out the card in order
 		cout << *deck[i] << " ";
+		// checks what card it is and if its the 13th, 16th or 39th it inserts an endline
 		if (i == 12 || i == 25 || i == 38) {
 			cout << endl;
 		}
 	}
+	// prints two blank lines for spacing to make it look better visually
 	cout << endl << endl;
 }
 
@@ -96,11 +98,17 @@ void shuffleDeck(array<const string *, DECK_SIZE> * deck) {
 	static default_random_engine engine(static_cast<unsigned int>(time(0)));
 	static uniform_int_distribution<unsigned int> randomInt(0, 51);
 	int whichCard = randomInt(engine);
+
 	for (size_t i = 0; i < DECK_SIZE; ++i)
 	{	// check if the card has already been assigned
-
-		// reassigns the card
-		(*deck)[i] = &cards[whichCard];
+		
+		for (int w = 0; w < i; ++w)
+		{
+			// sets up what number to swap with 
+			int j = i + (rand() % (52 - i));
+			// swaps card with randomly chosen card
+			swap((*deck)[i], (*deck)[j]);
+		}
 	}
 	// Tells the user the deck is shuffled
 	cout << "Shuffled the deck!" << endl << endl;
