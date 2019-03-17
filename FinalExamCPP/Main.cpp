@@ -82,8 +82,8 @@ void displayDeck(array<const string *, DECK_SIZE> deck) {
 	// currently prints the address not the actual data
 	for (size_t i = 0; i < DECK_SIZE; ++i)
 	{
-		cout << deck[i];
-		if (i == 12 || 1 == 25 || i == 38) {
+		cout << *deck[i] << " ";
+		if (i == 12 || i == 25 || i == 38) {
 			cout << endl;
 		}
 	}
