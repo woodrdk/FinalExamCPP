@@ -5,7 +5,7 @@
 // CPW 218 Winter
 // 2019 Final Exam
 
-
+#include <iomanip> // need?
 #include <iostream>
 #include <array>
 #include <string>
@@ -78,7 +78,13 @@ void printMenu() {
 // This method will display the deck of cards
 void displayDeck(array<const string *, DECK_SIZE> deck) {
 	cout << "This is the deck of Cards" << endl << endl;
-
+	// Will print out the cards
+	// currently prints the address not the actual data
+	for (size_t i = 0; i < DECK_SIZE; ++i)
+	{
+		cout << deck[i];
+	}
+	cout << endl << endl;
 }
 
 // This method will shuffle the deck of cards
@@ -86,7 +92,13 @@ void shuffleDeck(array<const string *, DECK_SIZE> * deck) {
 	// using the default random number generator will produce random  0 - 51
 	static default_random_engine engine(static_cast<unsigned int>(time(0)));
 	static uniform_int_distribution<unsigned int> randomInt(0, 51);
-	
+	int whichCard = randomInt(engine);
+	for (size_t i = 0; i < DECK_SIZE; ++i)
+	{	// check if the card has already been assigned
+
+		// reassigns the card
+		(*deck)[i] = &cards[whichCard];
+	}
 	// Tells the user the deck is shuffled
 	cout << "Shuffled the deck!" << endl << endl;
 }
