@@ -83,6 +83,9 @@ void displayDeck(array<const string *, DECK_SIZE> deck) {
 	for (size_t i = 0; i < DECK_SIZE; ++i)
 	{
 		cout << deck[i];
+		if (i == 12 || 1 == 25 || i == 38) {
+			cout << endl;
+		}
 	}
 	cout << endl << endl;
 }
