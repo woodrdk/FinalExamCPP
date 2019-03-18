@@ -69,6 +69,7 @@ int main() {
 	return 0;
 }
 
+// This method builds the initial deck of cards before displayed or shuffled
 void initializeDeck(array<const string *, DECK_SIZE> * deck) {
 	for (size_t i = 0; i < DECK_SIZE; ++i) {
 		(*deck)[i] = &cards[i];
