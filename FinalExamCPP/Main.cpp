@@ -5,7 +5,7 @@
 // CPW 218 Winter
 // 2019 Final Exam
 
-#include <iomanip> // need?
+
 #include <iostream>
 #include <array>
 #include <string>
@@ -40,24 +40,31 @@ void displayDeck(array<const string *, DECK_SIZE> deck);
 void shuffleDeck(array<const string *, DECK_SIZE> * deck);
 void printMenu();
 
+// Main function that calls the actions of the program
 int main() {
 
 	array<const string *, DECK_SIZE> deck;
 	initializeDeck(&deck);
-
+	// variable for user choice of what to do
 	int userChoice = -1;
+	// as long as the user doesnt choose 0 do the following
 	while (userChoice != 0) {
+		// prints out the options for the user to choose from
 		printMenu();
+		// Allows user to put their choice in for what they want to do
 		cin >> userChoice;
-		cout << endl; // Added this line to make program more visually readable to me when running 
+		// Added this line to make program more visually readable to me when running 
+		cout << endl; 
+		// if user chooses 1 then shuffle the deck
 		if (userChoice == 1) {
 			shuffleDeck(&deck);
 		}
+		// if user picks 2 then display the deck
 		else if (userChoice == 2) {
 			displayDeck(deck);
 		}
 	}
-
+	// pauses the program till key is pressed
 	system("pause");
 	return 0;
 }
