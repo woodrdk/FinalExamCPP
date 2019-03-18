@@ -104,19 +104,18 @@ void displayDeck(array<const string *, DECK_SIZE> deck) {
 void shuffleDeck(array<const string *, DECK_SIZE> * deck) {
 	// using the default random number generator will produce random  0 - 51
 	static default_random_engine engine(static_cast<unsigned int>(time(0)));
-	static uniform_int_distribution<unsigned int> randomInt(0, 51);   // needs to be in the loop
-	int whichCard = randomInt(engine);
+	//static uniform_int_distribution<unsigned int> randomInt(0, 51);   // needs to be in the loop
+	//int whichCard = randomInt(engine);
 
-	for (size_t i = 0; i < DECK_SIZE; ++i)
-	{	// check if the card has already been assigned
-		
-		for (int w = 0; w < i; ++w)
-		{
-			// sets up what number to swap with 
-			int j = i + (rand() % (52 - i));
-			// swaps card with randomly chosen card
-			swap((*deck)[i], (*deck)[j]);
-		}
+	for (unsigned int i = DECK_SIZE-1; i > 0; --i)
+	{	
+
+		uniform_int_distribution<unsigned int> randomInt{0, i};
+		// sets up what number to swap with 
+		unsigned int j = randomInt(engine);
+		// swaps card with randomly chosen card
+		swap((*deck)[i], (*deck)[j]);
+	
 	}
 	// Tells the user the deck is shuffled
 	cout << "Shuffled the deck!" << endl << endl;
